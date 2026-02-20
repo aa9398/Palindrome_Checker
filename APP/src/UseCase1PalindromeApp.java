@@ -5,13 +5,10 @@ public class UseCase1PalindromeApp {
         String check = "False";
         System.out.print("Input Text: ");
         String a = input.nextLine();
-        String b = "";
+        char[] chars = a.toCharArray();
         System.out.print("Is it a Palindrome : ");
-        for(int i = a.length() -1; i >= 0; i--){
-            b = b + a.charAt(i);
-        }
-        for(int i = 0; i < a.length() - 1; i++){
-                if(a.charAt(i) != b.charAt(i)){
+        for(int i = 0; i < chars.length / 2; i++){
+                if(chars[i] != chars[chars.length - 1 - i]){
                     check = "False";
                     break;
                 }
