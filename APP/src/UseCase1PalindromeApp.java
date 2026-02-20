@@ -1,26 +1,27 @@
 import java.util.Scanner;
+import java.util.Stack;
+
 public class UseCase1PalindromeApp {
     public static void main (String[] args){
-        Scanner input = new Scanner(System.in);
-        String check = "False";
-        System.out.print("Input Text: ");
-        String a = input.nextLine();
-        char[] chars = a.toCharArray();
-        System.out.print("Is it a Palindrome : ");
-        for(int i = 0; i < chars.length / 2; i++){
-                if(chars[i] != chars[chars.length - 1 - i]){
-                    check = "False";
-                    break;
-                }
-                else {
-                    check = "True";
-                }
+        Scanner scanner = new Scanner(System.in);
+        Stack <Character> stack = new Stack<>();
+        System.out.print("input : ");
+        String input = scanner.nextLine();
+
+        for(int i = 0; i < input.length(); i++){
+            stack.push(input.charAt(i));
         }
-        if(check.equals("True")){
-            System.out.print("True");
+        boolean isPalendrome = true;
+
+        for (int i = 0; i < input.length(); i++){
+            char temp = stack.pop();
+            if(input.charAt(i) != temp){
+                isPalendrome = false;
+            }
         }
-        else{
-            System.out.print("False");
+        System.out.println("Is Palindrome? : " + isPalendrome);
+
         }
+
     }
 }
