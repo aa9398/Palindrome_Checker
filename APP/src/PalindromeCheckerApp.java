@@ -13,11 +13,12 @@ public class PalindromeCheckerApp {
     public static void main (String[] args){
         Scanner scanner = new Scanner(System.in);
         System.out.print("input : ");
-        String input = scanner.nextLine();
+        String Normalized = scanner.nextLine();
 
-        input = input.toLowerCase();
+        Normalized = Normalized.toLowerCase();
+        Normalized = Normalized.toLowerCase().replaceAll("\\s+", "");;
 
-        boolean result = isPalindrome(input, 0, input.length() - 1);
+        boolean result = isPalindrome(Normalized, 0, Normalized.length() - 1);
         System.out.println("Is Palindrome? : " + result);
 
         scanner.close();
