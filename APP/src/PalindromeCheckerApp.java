@@ -1,13 +1,13 @@
 import java.util.Scanner;
 import java.util.Stack;
-import java.util.Queue;
-import java.util.LinkedList;
+import java.util.Deque;
+import java.util.ArrayDeque;
+
 
 public class PalindromeCheckerApp {
     public static void main (String[] args){
         Scanner scanner = new Scanner(System.in);
-        Queue<Character> queue = new LinkedList<>();
-        Stack <Character> stack = new Stack<>();
+        Deque<Character> deque = new ArrayDeque<>();
         System.out.print("input : ");
         String input = scanner.nextLine();
 
@@ -16,15 +16,14 @@ public class PalindromeCheckerApp {
         for(int i = 0; i < input.length(); i++){
             char ch = input.charAt(i);
             if(ch != ' '){
-                queue.add(ch);
-                stack.push(ch);
+                deque.addFirst(ch);
             }
         }
         boolean isPalendrome = true;
 
-        for (int i = 0; i < input.length(); i++){
-            char temp1 = stack.pop();
-            char temp2 = queue.remove();
+        for (int i = 0; i < input.length()/2; i++){
+            char temp1 = deque.removeFirst();
+            char temp2 = deque.removeLast();
             if(temp2 != temp1){
                 isPalendrome = false;
             }
